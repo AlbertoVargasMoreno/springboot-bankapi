@@ -2,17 +2,21 @@ package com.tryout.bankapp.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.tryout.bankapp.entity.Account;
+import com.tryout.bankapp.repo.AccountRepository;
 
 @Service
 public class AccountServiceImpl implements AccountService {
+    @Autowired
+    AccountRepository repo;
 
     @Override
     public Account createAccount(Account account) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createAccount'");
+        Account savedAccount = repo.save(account);
+        return savedAccount;
     }
 
     @Override
