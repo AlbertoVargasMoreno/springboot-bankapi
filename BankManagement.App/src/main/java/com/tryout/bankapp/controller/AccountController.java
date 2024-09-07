@@ -4,6 +4,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tryout.bankapp.entity.Account;
@@ -16,9 +18,9 @@ public class AccountController {
     AccountService service;
 
     //create the account
-    @PostMapping("/create")    
-    public Account createAccount(@RequestBody Account account) {
+    @PostMapping("/create")
+    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
         Account createdAccount = service.createAccount(account);
-        return createdAccount;
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdAccount);
     }
 }
