@@ -1,0 +1,37 @@
+{
+    "info": {
+        "_postman_id": "b8beaa2f-3175-4898-90f4-b56bb0ff7605",
+        "name": "bankingAPI",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "create account",
+            "request": {
+                "method": "POST",
+                "url": {
+                    "raw": "http://localhost:8080/account/create",
+                    "path": [
+                        "account",
+                        "create"
+                    ],
+                    "protocol": "http",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                },
+                "body": {
+                    "mode": "raw",
+                    "options": {
+                        "raw": {
+                            "language": "json"
+                        }
+                    },
+                    "raw": "{\n  \"account_holder_name\": \"Ave Maria\",\n  \"account_balance\": \"423.50\"\n}"
+                }
+            }
+        }
+    ]
+}

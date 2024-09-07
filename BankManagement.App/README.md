@@ -1,8 +1,10 @@
 # Banking API
 
-https://www.youtube.com/watch?v=Mp7qndf3xjg&list=WL&index=2&t=619s
+https://www.youtube.com/watch?v=Mp7qndf3xjg
 
-The video uses springboot version 3.2.3
+- The video uses springboot version 3.2.3
+
+- The configuration adaptation is show in [this screenshot](../docs/projectConfiguration.startSpringIO.png)
 
 ## Installation
 1. create DB
