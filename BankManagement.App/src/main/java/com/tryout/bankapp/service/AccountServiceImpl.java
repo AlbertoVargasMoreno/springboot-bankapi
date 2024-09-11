@@ -1,6 +1,7 @@
 package com.tryout.bankapp.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,12 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account getAccountDetailsByAccountNumber(Long accountNumber) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAccountDetailsByAccountNumber'");
+        Optional<Account> account = repo.findById(accountNumber);
+        if (account.isEmpty()) {
+            throw new RuntimeException("Account is not present");
+        }
+        Account found_account = account.get();
+        return found_account;
     }
 
     @Override

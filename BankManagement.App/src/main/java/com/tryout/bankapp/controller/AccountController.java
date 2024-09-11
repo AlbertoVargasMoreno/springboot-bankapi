@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tryout.bankapp.entity.Account;
 import com.tryout.bankapp.service.AccountService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/account")
@@ -23,4 +25,11 @@ public class AccountController {
         Account createdAccount = service.createAccount(account);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdAccount);
     }
+
+    @GetMapping("/{id}")
+    public Account getAccountByAccountNumber(@PathVariable Long id) {
+        Account accountDetails = service.getAccountDetailsByAccountNumber(id);
+        return accountDetails;
+    }
+    
 }
