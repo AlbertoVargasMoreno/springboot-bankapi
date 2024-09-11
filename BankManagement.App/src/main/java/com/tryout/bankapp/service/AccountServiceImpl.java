@@ -32,8 +32,8 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public List<Account> getAllAccountDetails() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAllAccountDetails'");
+        List<Account> listOfAccounts = repo.findAll();
+        return listOfAccounts;
     }
 
     @Override
