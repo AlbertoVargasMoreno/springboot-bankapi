@@ -7,10 +7,13 @@ https://www.youtube.com/watch?v=Mp7qndf3xjg
 - The configuration adaptation is show in [this screenshot](./docs/projectConfiguration.startSpringIO.png)
 
 ## Installation
-1. create DB
+1. clone this repository
+2. create DB
 ```
 mysql> create database bankDB;
 ```
+3. In VScode in the left menu choose option
+`SPRING BOOT DASHBOARD > APPS > Run`
 
 ## Test
 ```
