@@ -15,6 +15,8 @@ import com.tryout.bankapp.entity.Account;
 import com.tryout.bankapp.service.AccountService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+
 
 @RestController
 @RequestMapping("/account")
@@ -41,4 +43,9 @@ public class AccountController {
         return allAccountDetails;
     }
     
+    @PutMapping("/deposit/{accountNumber}/{amount}")
+    public Account depositAccount(@PathVariable Long accountNumber, @PathVariable Double amount) {
+        Account account_result = service.depositAmount(accountNumber, amount);
+        return account_result;
+    }
 }

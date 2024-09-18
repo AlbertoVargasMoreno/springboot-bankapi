@@ -38,8 +38,15 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public Account depositAmount(Long accountNumber, Double amount) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'depositAmount'");
+        Optional<Account> account = repo.findById(accountNumber);
+        if (account.isEmpty()) {
+            throw new RuntimeException("Account is not present");
+        }
+        Account currentAccount = account.get();
+        Double totalBalance = currentAccount.getAccount_balance() + amount;
+        currentAccount.setAccount_balance(totalBalance);
+        repo.save(currentAccount);
+        return currentAccount;
     }
 
     @Override
