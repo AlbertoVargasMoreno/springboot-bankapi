@@ -26,3 +26,10 @@ curl  -X POST \
   "account_balance": "423.50"
 }'
 ```
+## Acknowledgements
+
+This code is my version of the tutorial made by the youtube creator:
+
+- youtube.com/@SJProgrammingSolutions
+
+- topmate.io/shitaljadhav
