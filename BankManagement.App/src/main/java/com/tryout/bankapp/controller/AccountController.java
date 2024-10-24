@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.tryout.bankapp.entity.Account;
 import com.tryout.bankapp.service.AccountService;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -47,5 +50,12 @@ public class AccountController {
     public Account depositAccount(@PathVariable Long accountNumber, @PathVariable Double amount) {
         Account account_result = service.depositAmount(accountNumber, amount);
         return account_result;
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteAccount(@PathVariable Long id) {
+        // Account AccountDeleted = service.deleteAccount(id);
+        String responseText = "you will delete account id: " + id;
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body(responseText);
     }
 }
