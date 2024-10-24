@@ -56,9 +56,17 @@ public class AccountServiceImpl implements AccountService {
     }
 
     @Override
-    public void closeAccount(Long accountNumber) {
+    public String closeAccount(Long accountNumber) {
         // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'closeAccount'");
+        // throw new UnsupportedOperationException("Unimplemented method 'closeAccount'");
+        Optional<Account> account = repo.findById(accountNumber);
+        if (account.isEmpty()) {
+            throw new RuntimeException("Account is not present");
+        }
+        Account found_account = account.get();
+        // return found_account;
+        repo.delete(found_account);
+        String message = "account closed with id: " + accountNumber;
+        return message;
     }
-    
 }
